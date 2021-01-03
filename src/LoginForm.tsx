@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer,useEffect} from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Container, TextField } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
@@ -7,10 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-import { BrowserRouter as Router, Link} from 'react-router-dom';
-
-
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -42,7 +39,7 @@ type State = {
     helperText: string
     isError: boolean,
 
-    //shouldRedirect:boolean
+    
 };
 
 const initialState: State = {
@@ -52,8 +49,7 @@ const initialState: State = {
     helperText: '',
     isError: false,
 
-    // shouldRedirect:false
-};
+ };
 
 type Action = { type: 'setUsername', payload: string }
     | { type: 'setPassword', payload: string }
@@ -86,12 +82,6 @@ const reducer = (state: State, action: Action): State => {
                 helperText: action.payload,
                 isError: false
 
-                //shouldRedirect: false
-                //  <BrowserRouter>
-
-                //  <Route path="/home" component={Home} /><Route />
-
-                //  </BrowserRouter> 
             };
         case 'loginFailed':
             return {
@@ -106,10 +96,24 @@ const reducer = (state: State, action: Action): State => {
             };
     }
 }
-const handleLogin = () => {}
+
 
 const LoginForm =()=> {
     const classes = useStyles();
+    const [state, dispatch] = useReducer(reducer, initialState);
+    useEffect(() => {
+        if (state.username.trim() && state.password.trim()) {
+         dispatch({
+           type: 'setIsButtonDisabled',
+           payload: false
+         });
+        } else {
+          dispatch({
+            type: 'setIsButtonDisabled',
+            payload: true
+          });
+        }
+      }, [state.username, state.password]);
 
     const handleLogin = () => {
         if (state.username === 'aeg@email.com' && state.password === '1234') {
@@ -122,7 +126,7 @@ const LoginForm =()=> {
         }
       };
     
-    const [state, dispatch] = useReducer(reducer, initialState);  
+    //const [state, dispatch] = useReducer(reducer, initialState);  
         const handleKeyPress = (event: React.KeyboardEvent) => {
             if (event.keyCode === 13 || event.which === 13) {
                 state.isButtonDisabled || handleLogin();
@@ -181,12 +185,13 @@ const LoginForm =()=> {
                             <CardActions>
                                 <Button
                                     component={Link}
-                                    to="/home"
+                                    to="/menubar"
                                     variant="contained"
                                     size="large"
                                     color="primary"
                                     className={classes.loginBtn}
                                     onClick={handleLogin}
+                                    disabled={state.isButtonDisabled}
                                 >
                                     Login
           </Button>
