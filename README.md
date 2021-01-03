@@ -1,6 +1,6 @@
-# React Experiments
+# Papyrus UI
 
-A collection of React Experiments
+Web UI for the Papyrus platform
 
 ## Available Scripts
 
