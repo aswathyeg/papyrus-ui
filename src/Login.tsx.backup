@@ -1,0 +1,58 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Container,TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
+const Login = () => { 
+   
+  return (
+    
+    <Container>       
+              <div>                
+                <Router>
+                 <Route exact path="/" component={Login2} />
+                  <Route path="/home" component={Home} />                   
+                </Router>                
+              </div>   
+ 
+    </Container>
+  );
+}
+
+const Login2 = () => {
+  return (
+      <div className="title">
+        <TextField                  
+                  fullWidth
+                  id="username"
+                  type="email"
+                  //label="Username"
+                  placeholder="Username"
+                  margin="normal"
+                /> 
+                <TextField                   
+                  fullWidth
+                  id="password"
+                  type="password"
+                  //label="Password"
+                  placeholder="Password"
+                  margin="normal"                   
+                />
+
+         
+        <Link to="/home"><button>Login</button></Link>
+      </div>
+  )
+}
+const Home = () => {
+  return (
+    <div className="nav">
+      <h1>Welcome Home!</h1>
+      <Link to="/"><button>Back to Login</button></Link>
+    </div>
+  )
+}
+ 
+export default Login;
