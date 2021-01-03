@@ -1,0 +1,265 @@
+import React, { useReducer, useEffect } from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Container, TextField } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+import Home from './Home';
+import LoginForm from './LoginHome';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      width: 500,
+      margin: `${theme.spacing(0)} auto`
+    },
+    loginBtn: {
+      marginTop: theme.spacing(2),
+      flexGrow: 1
+    },
+    header: {
+      textAlign: 'center',
+      background: 'primary',
+      color: 'primary'
+    },
+    card: {
+      marginTop: theme.spacing(10)
+    }
+  })
+);
+
+//state type
+
+type State = {
+  username: string
+  password: string
+  isButtonDisabled: boolean
+  helperText: string
+  isError: boolean,
+
+  //shouldRedirect:boolean
+};
+
+const initialState: State = {
+  username: '',
+  password: '',
+  isButtonDisabled: true,
+  helperText: '',
+  isError: false,
+
+  // shouldRedirect:false
+};
+
+type Action = { type: 'setUsername', payload: string }
+  | { type: 'setPassword', payload: string }
+  | { type: 'setIsButtonDisabled', payload: boolean }
+  | { type: 'loginSuccess', payload: string }
+  | { type: 'loginFailed', payload: string }
+  | { type: 'setIsError', payload: boolean };
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'setUsername':
+      return {
+        ...state,
+        username: action.payload
+      };
+    case 'setPassword':
+      return {
+        ...state,
+        password: action.payload
+      };
+    case 'setIsButtonDisabled':
+      return {
+        ...state,
+        isButtonDisabled: action.payload
+      };
+    case 'loginSuccess':
+      return {
+
+        ...state,
+        helperText: action.payload,
+        isError: false
+
+        //shouldRedirect: false
+        //  <BrowserRouter>
+
+        //  <Route path="/home" component={Home} /><Route />
+
+        //  </BrowserRouter> 
+      };
+    case 'loginFailed':
+      return {
+        ...state,
+        helperText: action.payload,
+        isError: true
+      };
+    case 'setIsError':
+      return {
+        ...state,
+        isError: action.payload
+      };
+  }
+}
+
+const Login = () => {
+  const classes = useStyles();
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (state.username.trim() && state.password.trim()) {
+      dispatch({
+        type: 'setIsButtonDisabled',
+        payload: false
+      });
+    } else {
+      dispatch({
+        type: 'setIsButtonDisabled',
+        payload: true
+      });
+    }
+  }, [state.username, state.password]);
+
+  const handleLogin = () => {
+    //preventDefault();
+    console.log("handlelog 1");
+
+    if (state.username === 'aeg@email.com' && state.password === '1234') {
+      console.log("handlelog 2");
+      /*
+      <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/home">
+            <Home />
+            </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+      */
+
+
+      //        <BrowserRouter>
+      // <div>
+      // <Route path="/home" component={Home}>
+      // <Redirect to="/home"/>
+      //             <Home />
+      //           </Route>
+
+      //             </div>
+      //        </BrowserRouter>
+
+      //   {/* <Redirect to="/home" /> */}
+      //   {/* <Route path="/home"> */}
+
+      //   {/* </Route> */}
+
+
+
+      // 
+
+      /*{ <Redirect to="/home" push/>   }*/
+      // try {
+      //   //await Auth.signIn(email, password);
+      //  // userHasAuthenticated(true);
+      //  return  <Redirect  to="/home" />
+      //   //history.push("/");
+      // } catch (e) {
+      //   alert(e.message);
+      // }
+
+
+
+      /* { <BrowserRouter>
+   
+   <Route path="/home" component={Home} />
+   return  <Redirect to="/home" push/>  
+  </BrowserRouter>  }*/
+      //return <Redirect to="/home" push/> 
+      // return  <Redirect to="/home" />  */}
+      //history.push('/home') 
+
+
+      // dispatch({
+      //   type: 'loginSuccess',
+      //   payload: 'Login Successfully',
+
+      //   //     shouldRedirect:'true';
+      // });
+
+
+
+      //return  <Redirect  to="/home" />
+      //  <Redirect
+      //         to={{
+      //         pathname: "/home",
+      //         state: { from: props.location }
+      //         }}
+      //       />
+      // const {history}=this.props;
+      // this.props.history.push({
+      // pathname:"/home",
+      // state:{
+      //   key:"value"
+      // }
+      // });
+
+
+    } else {
+      dispatch({
+        type: 'loginFailed',
+        payload: 'Incorrect username or password'
+      });
+    }
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.keyCode === 13 || event.which === 13) {
+      state.isButtonDisabled || handleLogin();
+    }
+  };
+
+  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> =
+    (event) => {
+      dispatch({
+        type: 'setUsername',
+        payload: event.target.value
+      });
+    };
+
+  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> =
+    (event) => {
+      dispatch({
+        type: 'setPassword',
+        payload: event.target.value
+      });
+    }
+  return (
+    <Router>
+     <Route exact path="/" component={LoginForm} />
+      <Route path="/home" component={Home} />
+      
+    </Router>
+  );
+}
+
+export default Login;
