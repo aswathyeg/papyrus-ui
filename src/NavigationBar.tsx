@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { NavLink, withRouter } from 'react-router-dom';
-import Routes from '../App/Routes';
+import Routes from './Routes';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {
