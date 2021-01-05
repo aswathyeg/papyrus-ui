@@ -66,7 +66,7 @@ const NavigationBar: React.FC = (props: any) => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Football Almanac
+              Papyrus
             </Typography>
           </Toolbar>
         </AppBar>
