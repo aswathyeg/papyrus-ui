@@ -1,14 +1,29 @@
 import React from 'react';
+import NavigationBar from './NavigationBar'
+import { Switch, Route } from 'react-router-dom';
+
 
 const Home: React.FC = () => {
   return (
+    <React.Fragment>
+    <NavigationBar />
     <h1>Home</h1>
+    </React.Fragment>
   );
 };
 
-const Standings: React.FC = () => {
+const Dashboard: React.FC = () => {
   return (
-    <h1>Standings</h1>
+    <div>
+      <NavigationBar />
+      <Switch>
+        {Routes.map((route: any) => (
+          <Route exact path={route.path} key={route.path}>
+            <route.component />
+          </Route>
+        ))}
+      </Switch>
+    </div>
   );
 };
 
@@ -25,9 +40,9 @@ const Routes = [
     component: Home
   },
   {
-    path: '/standings',
-    sidebarName: 'Standings',
-    component: Standings
+    path: '/dashboard',
+    sidebarName: 'Dashboard',
+    component: Dashboard
   },
   {
     path: '/teams',
