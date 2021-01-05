@@ -2,30 +2,18 @@ import React from 'react';
 import NavigationBar from './NavigationBar'
 import { Switch, Route } from 'react-router-dom';
 
+import Home from './Home'
+import Dashboard from './Dashboard'
+import { BrowserRouter as Router} from 'react-router-dom';
+// const Home: React.FC = () => {
+//   return (
+//     <React.Fragment>
+//     <NavigationBar />
+//     <h1>Home</h1>
+//     </React.Fragment>
+//   );
+// };
 
-const Home: React.FC = () => {
-  return (
-    <React.Fragment>
-    <NavigationBar />
-    <h1>Home</h1>
-    </React.Fragment>
-  );
-};
-
-const Dashboard: React.FC = () => {
-  return (
-    <div>
-      <NavigationBar />
-      <Switch>
-        {Routes.map((route: any) => (
-          <Route exact path={route.path} key={route.path}>
-            <route.component />
-          </Route>
-        ))}
-      </Switch>
-    </div>
-  );
-};
 
 const Teams: React.FC = () => {
   return (
@@ -35,7 +23,7 @@ const Teams: React.FC = () => {
 
 const Routes = [
   {
-    path: '/',
+    path: '/home',
     sidebarName: 'Home',
     component: Home
   },
