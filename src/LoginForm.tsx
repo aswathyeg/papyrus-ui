@@ -81,6 +81,7 @@ const reducer = (state: State, action: Action): State => {
                 ...state,
                 helperText: action.payload,
                 isError: false
+               
 
             };
         case 'loginFailed':
@@ -116,9 +117,12 @@ const LoginForm =()=> {
       }, [state.username, state.password]);
 
     const handleLogin = () => {
+        let isAuthenticated:boolean;
         if (state.username === 'aeg@email.com' && state.password === '1234') {
-          console.log("handlelog 2");
+            isAuthenticated=true;
+         // console.log("handlelog 2");
         } else {
+            isAuthenticated=false;
           dispatch({
             type: 'loginFailed',
             payload: 'Incorrect username or password'
@@ -128,7 +132,7 @@ const LoginForm =()=> {
     
     //const [state, dispatch] = useReducer(reducer, initialState);  
         const handleKeyPress = (event: React.KeyboardEvent) => {
-            if (event.keyCode === 13 || event.which === 13) {
+            if (event.keyCode === 13|| event.which === 13) {
                 state.isButtonDisabled || handleLogin();
             }
         };
@@ -184,8 +188,9 @@ const LoginForm =()=> {
                             </CardContent>
                             <CardActions>
                                 <Button
-                                    component={Link}
-                                    to="/menubar"
+                                
+                                   component={Link}
+                                    to="/navigationbar"
                                     variant="contained"
                                     size="large"
                                     color="primary"
