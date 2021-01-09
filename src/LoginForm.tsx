@@ -117,17 +117,20 @@ const LoginForm =()=> {
       }, [state.username, state.password]);
 
     const handleLogin = () => {
-        let isAuthenticated:boolean;
+        //let isAuthenticated:boolean;
+        
         if (state.username === 'aeg@email.com' && state.password === '1234') {
-            isAuthenticated=true;
+           
+           // isAuthenticated=true;
          // console.log("handlelog 2");
         } else {
-            isAuthenticated=false;
+           // isAuthenticated=false;
           dispatch({
             type: 'loginFailed',
             payload: 'Incorrect username or password'
           });
         }
+        
       };
     
     //const [state, dispatch] = useReducer(reducer, initialState);  
