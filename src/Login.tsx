@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <Router>
       <Route exact path="/" component={LoginForm} />
-      <Route path="/menubar" component={Menubar} />
+      {/* <Route path="/menubar" component={Menubar} /> */}
 
     </Router>
   );
