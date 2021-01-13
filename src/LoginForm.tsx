@@ -8,6 +8,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
+import Login from './Login';
+import Menubar from './Menubar';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -99,7 +101,9 @@ const reducer = (state: State, action: Action): State => {
 }
 
 
-const LoginForm =()=> {
+const LoginForm =()=> { 
+    //document.getElementById('login')!.style.display = "none";
+    let isAuthenticated:true;
     const classes = useStyles();
     const [state, dispatch] = useReducer(reducer, initialState);
     useEffect(() => {
@@ -117,11 +121,13 @@ const LoginForm =()=> {
       }, [state.username, state.password]);
 
     const handleLogin = () => {
-        //let isAuthenticated:boolean;
-        
+       
+      let  isAuthenticated=false;
         if (state.username === 'aeg@email.com' && state.password === '1234') {
+        //    return (
+        //    <div> component={Link}
+        //    to="/navigationbar"</div>)
            
-           // isAuthenticated=true;
          // console.log("handlelog 2");
         } else {
            // isAuthenticated=false;
@@ -191,15 +197,21 @@ const LoginForm =()=> {
                             </CardContent>
                             <CardActions>
                                 <Button
-                                
-                                   component={Link}
-                                    to="/navigationbar"
+                                //  {...isAuthenticated? <Menubar />:<Login />}
+                                // to="/home":component={Link}
+                                // to="/"}
+
+                                 component={Link}
+                                to="/home"
                                     variant="contained"
                                     size="large"
                                     color="primary"
                                     className={classes.loginBtn}
                                     onClick={handleLogin}
                                     disabled={state.isButtonDisabled}
+
+
+           
                                 >
                                     Login
           </Button>

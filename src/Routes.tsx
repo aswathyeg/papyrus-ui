@@ -1,6 +1,4 @@
-import React from 'react';
-import NavigationBar from './NavigationBar'
-import { Switch, Route } from 'react-router-dom';
+
 
 import Home from './Home'
 import Dashboard from './Dashboard'
@@ -9,8 +7,11 @@ import Admin from './Admin'
 import Student from './Student'
 import Teacher from './Teacher'
 import Logout from './Logout'
-import { BrowserRouter as Router} from 'react-router-dom';
+import Login from './Login'
+
+
 const Routes = [
+ 
   {
     path: '/home',
     sidebarName: 'Home',
