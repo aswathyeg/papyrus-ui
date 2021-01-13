@@ -8,7 +8,7 @@ import Menubar from './Menubar'
 
 ReactDOM.render(
    <BrowserRouter>
-    <App />,
+    <App />
       <Menubar />
    </BrowserRouter>,
   document.getElementById('root')
