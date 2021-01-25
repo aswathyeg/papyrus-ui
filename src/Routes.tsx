@@ -7,11 +7,11 @@ import Admin from './Admin'
 import Student from './Student'
 import Teacher from './Teacher'
 import Logout from './Logout'
-import Login from './Login'
+
 
 
 const Routes = [
- 
+
   {
     path: '/home',
     sidebarName: 'Home',
