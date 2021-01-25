@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const NavigationBar: React.FC = (props: any) => {
+
+  
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = (open: boolean) => (
@@ -66,6 +68,7 @@ const NavigationBar: React.FC = (props: any) => {
   }
 
   return (
+    
     <div>
       <div className={classes.root}>
         <AppBar position="static">
