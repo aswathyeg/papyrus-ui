@@ -6,11 +6,11 @@ import Routes from './Routes';
 import NavigationBar from './NavigationBar';
 
 
-const Menubar: React.FC = () => {
+const Menubar: React.FC = (): JSX.Element => {
   
   return (
     <div>
-      <NavigationBar />
+      <NavigationBar /> 
       <Switch>
         {Routes.map((route: any) => (
           <Route exact path={route.path} key={route.path}>
