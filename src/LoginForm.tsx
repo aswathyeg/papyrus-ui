@@ -124,6 +124,7 @@ const LoginForm = () => {
         
         if (state.username === 'aeg@email.com' && state.password === '1234') {
             history.push('/menubar');
+            //setTimeout(() => history.push('/menubar'), 10);
             
         } else {
            
