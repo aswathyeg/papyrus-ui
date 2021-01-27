@@ -1,17 +1,18 @@
-import React from 'react'
-class Student extends React.Component{
-    constructor(props: any) {
-        super(props);
-        this.state = {
 
-        }
-    }
-   render(){
-       return(
-           <div>
-               <p> STUDENT</p>
-           </div>
-       )
-   }    
+
+import NavigationBar from './NavigationBar';
+
+
+const Student: React.FC = (): JSX.Element => {
+  
+  return (
+    <div>
+        <NavigationBar /> 
+     
+      <p>Student</p>
+     
+    </div>
+  );
 }
+
 export default Student;

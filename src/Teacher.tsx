@@ -1,17 +1,17 @@
-import React from 'react'
-class Teacher extends React.Component{
-    constructor(props: any) {
-        super(props);
-        this.state = {
 
-        }
-    }
-   render(){
-       return(
-           <div>
-               <p> TEACHER</p>
-           </div>
-       )
-   }    
+
+import NavigationBar from './NavigationBar';
+
+
+const Teacher: React.FC = (): JSX.Element => {
+  
+  return (
+    <div>
+      <NavigationBar /> 
+      <p>Teacher</p>
+     
+    </div>
+  );
 }
+
 export default Teacher;

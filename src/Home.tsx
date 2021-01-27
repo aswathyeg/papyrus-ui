@@ -1,19 +1,18 @@
-import React from 'react'
-//import NavigationBar from './NavigationBar'
-class  Home extends React.Component{
-    constructor(props: any) {
-        super(props);
-        this.state = {
 
-        }
-    }
-   render(){
-       return(
-           <div>
-               {/* <NavigationBar /> */}
-               <p>HOME PAGE</p>
-           </div>
-       )
-   }
+
+
+import NavigationBar from './NavigationBar';
+
+
+const Home: React.FC = (): JSX.Element => {
+  
+  return (
+    <div>
+      <NavigationBar /> 
+      <p>Home</p>
+      
+    </div>
+  );
 }
-export default  Home;
+
+export default Home;

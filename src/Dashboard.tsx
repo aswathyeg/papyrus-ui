@@ -1,17 +1,17 @@
-import React from 'react'
-class  Dashboard extends React.Component{
-    constructor(props: any) {
-        super(props);
-        this.state = {
 
-        }
-    }
-   render(){
-       return(
-           <div>
-               <p>DASHBOARD</p>
-           </div>
-       )
-   }
+
+import NavigationBar from './NavigationBar';
+
+
+const Dashboard: React.FC = (): JSX.Element => {
+  
+  return (
+    <div>
+      <NavigationBar /> 
+      <p>Dashboard</p>
+     
+    </div>
+  );
 }
-export default  Dashboard;
+
+export default Dashboard;
