@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom';
-import Routes from './Routes';
+
 
 import NavigationBar from './NavigationBar';
 
@@ -11,13 +10,14 @@ const Menubar: React.FC = (): JSX.Element => {
   return (
     <div>
       <NavigationBar /> 
-      <Switch>
+      
+      {/* <Switch>
         {Routes.map((route: any) => (
           <Route exact path={route.path} key={route.path}>
             <route.component />
           </Route>
         ))}
-      </Switch>
+      </Switch> */}
     </div>
   );
 }
