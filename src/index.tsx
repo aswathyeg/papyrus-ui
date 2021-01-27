@@ -4,10 +4,8 @@ import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import Home from './Home'
 import Dashboard from './Dashboard';
-
 import Logout from './Logout';
 import Usermanagement from './Usermanagement';
 import Admin from './Admin';
@@ -18,15 +16,15 @@ ReactDOM.render(
     <BrowserRouter>
         <div>
 
-           <App /> 
-             {/* <Switch>
+            <App />
+            {/* <Switch>
                 <Route
                     exact
                     path='/'
                     render={(props) => <App />}
                 />
             </Switch>  */}
-             {/* <Switch>
+            {/* <Switch>
            
                 <Route
                     exact
@@ -35,94 +33,80 @@ ReactDOM.render(
                 />
             </Switch>  */}
             <Switch>
-           
+
                 <Route
                     exact
                     path='/home'
-                    render={(props) => 
-                    <div>
-                         <Home/>
-                        
-                       
+                    render={(props) =>
+                        <div>
+                            <Home />
                         </div>}
                 />
             </Switch>
-            
+
             <Switch>
-           
+
                 <Route
                     exact
                     path='/dashboard'
-                    render={(props) => 
-                    <div>
-                         <Dashboard/>
-                        
-                       
+                    render={(props) =>
+                        <div>
+                            <Dashboard />
                         </div>}
                 />
             </Switch>
             <Switch>
-           
+
                 <Route
                     exact
                     path='/usermanagement'
-                    render={(props) => 
-                    <div>
-                         <Usermanagement/>
-                        
-                       
+                    render={(props) =>
+                        <div>
+                            <Usermanagement />
                         </div>}
                 />
             </Switch>
             <Switch>
-           
+
                 <Route
                     exact
                     path='/admin'
-                    render={(props) => 
-                    <div>
-                         <Admin/>
-                        
-                       
+                    render={(props) =>
+                        <div>
+                            <Admin />
                         </div>}
                 />
             </Switch>
             <Switch>
-           
+
                 <Route
                     exact
                     path='/student'
-                    render={(props) => 
-                    <div>
-                         <Student/>
-                       
-                       
+                    render={(props) =>
+                        <div>
+                            <Student />
                         </div>}
                 />
             </Switch>
             <Switch>
-           
+
                 <Route
                     exact
                     path='/teacher'
-                    render={(props) => 
-                    <div>
-                         <Teacher/>
-                        
-                       
-                        </div>}
+                    render={(props) =>
+                        <div>
+                            <Teacher />
+                       </div>}
                 />
             </Switch>
             <Switch>
-           
+
                 <Route
                     exact
                     path='/logout'
-                    render={(props) => 
-                    <div>
-                        <Logout />
-                        
-                       
+                    render={(props) =>
+                        <div>
+                            <Logout />
                         </div>}
                 />
             </Switch>
