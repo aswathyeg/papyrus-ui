@@ -4,7 +4,6 @@ import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Home from './Home'
 import Dashboard from './Dashboard';
 import Logout from './Logout';
 import Usermanagement from './Usermanagement';
@@ -32,7 +31,9 @@ ReactDOM.render(
                     render={(props) => <Menubar/>}
                 />
             </Switch>  */}
-            <Switch>
+
+
+            {/* <Switch>
 
                 <Route
                     exact
@@ -42,7 +43,7 @@ ReactDOM.render(
                             <Home />
                         </div>}
                 />
-            </Switch>
+            </Switch> */}
 
             <Switch>
 
