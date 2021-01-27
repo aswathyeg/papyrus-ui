@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const NavigationBar: React.FC = (props: any) => {
+const NavigationBar: React.FC = (props: any): JSX.Element => {
 
   
   const classes = useStyles();
