@@ -1,18 +1,17 @@
 
 
-
 import NavigationBar from './NavigationBar';
 
 
-const Home: React.FC = (): JSX.Element => {
+const Dashboard: React.FC = (): JSX.Element => {
   
   return (
     <div>
       <NavigationBar /> 
-      <p>Home</p>
-      
+      <p>Dashboard</p>
+     
     </div>
   );
 }
 
-export default Home;
+export default Dashboard;

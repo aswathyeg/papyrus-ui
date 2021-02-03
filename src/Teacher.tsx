@@ -1,18 +1,17 @@
 
 
-
 import NavigationBar from './NavigationBar';
 
 
-const Home: React.FC = (): JSX.Element => {
+const Teacher: React.FC = (): JSX.Element => {
   
   return (
     <div>
       <NavigationBar /> 
-      <p>Home</p>
-      
+      <p>Teacher</p>
+     
     </div>
   );
 }
 
-export default Home;
+export default Teacher;
