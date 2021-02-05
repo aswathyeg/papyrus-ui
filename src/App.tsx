@@ -1,83 +1,50 @@
-import React from 'react';
-
+import React, { Suspense, lazy } from 'react';
 import './App.css';
-import Login from './Login';
-//import {  Route } from 'react-router-dom';
-import Home from './Home';
+//import Login from './Login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-//import Hooks from './Hooks';
-import Dashboard from './Dashboard';
-import Logout from './Logout';
-import Usermanagement from './Usermanagement';
-import Admin from './Admin';
-import Student from './Student';
-import Teacher from './Teacher';
+
+const Home = lazy(() => import('./Home'));
+const Dashboard = lazy(() => import('./Dashboard'));
+const Logout = lazy(() => import('./Logout'));
+const Usermanagement = lazy(() => import('./Usermanagement'));
+const Admin = lazy(() => import('./Admin'));
+const Student = lazy(() => import('./Student'));
+const Teacher = lazy(() => import('./Teacher'));
+// import Dashboard from './Dashboard';
+// import Logout from './Logout';
+// import Usermanagement from './Usermanagement';
+// import Admin from './Admin';
+// import Student from './Student';
+// import Teacher from './Teacher';
 function App() {
 
   return (
     <BrowserRouter>
     <div className="App">
 
-      <Login />
+      <Suspense fallback={<div>Loading...</div>}>
+     
+      <Switch>
+        <Route exact path="/home" component={Home}/>
+        <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/usermanagement" component={Usermanagement}/>
+        <Route path="/admin" component={Admin}/>
+        <Route path="/student" component={Student}/>
+        <Route path="/teacher" component={Teacher}/>
+        <Route path="/logout" component={Logout}/>
+      </Switch>
+    </Suspense>
   
-    <Route exact path="/home" component={Home} />
+    
 
-    <Switch>
+  
 
-<Route
-    exact
-    path='/dashboard'
-    render={(props) =>
-        <div>
-            <Dashboard />
-        </div>}
-/>
-</Switch>
-<Switch>
 
-<Route
-    exact
-    path='/usermanagement'
-    render={(props) =>
-        <div>
-            <Usermanagement />
-        </div>}
-/>
-</Switch>
-<Switch>
 
-<Route
-    exact
-    path='/admin'
-    render={(props) =>
-        <div>
-            <Admin />
-        </div>}
-/>
-</Switch>
-<Switch>
 
-<Route
-    exact
-    path='/student'
-    render={(props) =>
-        <div>
-            <Student />
-        </div>}
-/>
-</Switch>
-<Switch>
 
-<Route
-    exact
-    path='/teacher'
-    render={(props) =>
-        <div>
-            <Teacher />
-       </div>}
-/>
-</Switch>
-<Switch>
+
+{/* <Switch>
 
 <Route
     exact
@@ -87,7 +54,7 @@ function App() {
             <Logout />
         </div>}
 />
-</Switch>
+</Switch> */}
 </div>
 </BrowserRouter>
 
