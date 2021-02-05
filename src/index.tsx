@@ -4,6 +4,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Login from './Login';
 // import Dashboard from './Dashboard';
 // import Logout from './Logout';
 // import Usermanagement from './Usermanagement';
@@ -16,6 +17,7 @@ ReactDOM.render(
         <div>
 
             <App />
+            <Login /> 
             
         </div>
      </BrowserRouter>,
