@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Dashboard from './Dashboard';
 import Logout from './Logout';
-import Usermanagement from './Usermanagement';
+import Usermanagement from './Usermanagement/Usermanagement';
 import Admin from './Admin';
 import Student from './Student';
 import Teacher from './Teacher';
