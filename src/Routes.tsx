@@ -2,7 +2,7 @@
 
 //import Home from './Home'
 import Dashboard from './Dashboard'
-import Usermanagement from './Usermanagement'
+import Usermanagement from './Usermanagement/Usermanagement'
 import Admin from './Admin'
 import Student from './Student'
 import Teacher from './Teacher'
