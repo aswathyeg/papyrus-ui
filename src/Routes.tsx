@@ -1,6 +1,6 @@
 
 
-import Home from './Home'
+//import Home from './Home'
 import Dashboard from './Dashboard'
 import Usermanagement from './Usermanagement'
 import Admin from './Admin'
@@ -12,11 +12,11 @@ import Logout from './Logout'
 
 const Routes = [
 
-  {
-    path: '/home',
-    sidebarName: 'Home',
-    component: Home
-  },
+  // {
+  //   path: '/home',
+  //   sidebarName: 'Home',
+  //   component: Home
+  // },
   {
     path: '/dashboard',
     sidebarName: 'Dashboard',
