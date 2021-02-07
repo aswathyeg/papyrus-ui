@@ -11,6 +11,13 @@ import SchoolIcon from '@material-ui/icons/School';
 import LocalLibraryRoundedIcon from '@material-ui/icons/LocalLibraryRounded';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
+
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+
+import Fade from '@material-ui/core/Fade';
+
 import {
   AppBar,
   Toolbar,
@@ -96,8 +103,8 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
                   <MenuItem selected={activeRoute(prop.path)} >
                 {/* <ListItemIcon> <HomeRoundedIcon /></ListItemIcon>   */}
-                    <ListItemIcon> {(key ===1?< DashboardRoundedIcon color="primary"/>:(key ===2 ?< PeopleRoundedIcon color="primary"/>:
-                    (key ===3 ?<AccountCircleRoundedIcon color="primary"/>:(key ===4 ?<SchoolIcon color="primary"/>:(key ===5 ?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
+                    <ListItemIcon> {(key ===0?< DashboardRoundedIcon color="primary"/>:(key ===1 ?< PeopleRoundedIcon color="primary"/>:
+                    (key ===2 ?<AccountCircleRoundedIcon color="primary"/>:(key ===3 ?<SchoolIcon color="primary"/>:(key ===4 ?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
                     <ListItemText primary={prop.sidebarName} />
                   </MenuItem>
                 </NavLink>
