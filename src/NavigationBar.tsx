@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+//import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
 import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -96,7 +96,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
                   <MenuItem selected={activeRoute(prop.path)} >
                 {/* <ListItemIcon> <HomeRoundedIcon /></ListItemIcon>   */}
-                    <ListItemIcon> {key=== 0 ?<HomeRoundedIcon color="primary"/> :(key ===1?< DashboardRoundedIcon color="primary"/>:(key ===2 ?< PeopleRoundedIcon color="primary"/>:
+                    <ListItemIcon> {(key ===1?< DashboardRoundedIcon color="primary"/>:(key ===2 ?< PeopleRoundedIcon color="primary"/>:
                     (key ===3 ?<AccountCircleRoundedIcon color="primary"/>:(key ===4 ?<SchoolIcon color="primary"/>:(key ===5 ?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
                     <ListItemText primary={prop.sidebarName} />
                   </MenuItem>
