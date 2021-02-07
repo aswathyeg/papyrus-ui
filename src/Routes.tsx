@@ -24,7 +24,7 @@ const Routes = [
   },
   {
     path: '/usermanagement',
-    sidebarName: 'Usermanagement',
+    sidebarName: 'User Management',
     component: Usermanagement
   },
   {
