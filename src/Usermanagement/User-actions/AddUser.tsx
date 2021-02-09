@@ -206,7 +206,7 @@ const AddUser = () => {
                     <Card className={classes.card}>
                         <CardHeader className={classes.header} title="Add New User" />
                         <CardContent>
-                            <div>
+                            
                                 <TextField
                                     error={state.isError}
                                     fullWidth
@@ -261,7 +261,7 @@ const AddUser = () => {
           value={value}
           onChange={handleAddressChange}
         />
-        
+
           <TextField
           id="standard-select-role-native"
           select
@@ -278,11 +278,7 @@ const AddUser = () => {
               {option.label}
             </option>
           ))}
-        </TextField>
-        
-   
-                            </div>
-                        </CardContent>
+        </TextField>          
                         <CardActions>
                             <Button
                                 //  {...isAuthenticated? <Menubar />:<Login />}
@@ -303,12 +299,18 @@ const AddUser = () => {
                             >
                                 Submit
           </Button>
-                        </CardActions>
+         
+          </CardActions>
+                        </CardContent>
+                        
                     </Card>
-
+                   
                 </form>
+              
             </Typography>
+           
         </Container>
+      
     )
 }
 
