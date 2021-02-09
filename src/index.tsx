@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
+import AddUser from './Usermanagement/User-actions/AddUser';
 // import Dashboard from './Dashboard';
 // import Logout from './Logout';
 // import Usermanagement from './Usermanagement';
@@ -18,7 +19,7 @@ ReactDOM.render(
 
             <App />
             <Login /> 
-            
+            <AddUser />
         </div>
      </BrowserRouter>,
     document.getElementById('root')
