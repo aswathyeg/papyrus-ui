@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
 import AddUser from './Usermanagement/User-actions/AddUser';
+import ViewUser from './Usermanagement/User-actions/ViewUser';
 // import Dashboard from './Dashboard';
 // import Logout from './Logout';
 // import Usermanagement from './Usermanagement';
@@ -19,7 +20,8 @@ ReactDOM.render(
 
             <App />
             {/* <Login />  */}
-            <AddUser />
+            {/* <AddUser /> */}
+           <ViewUser />
         </div>
      </BrowserRouter>,
     document.getElementById('root')
