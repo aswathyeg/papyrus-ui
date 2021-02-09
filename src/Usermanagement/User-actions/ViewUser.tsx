@@ -4,16 +4,17 @@ import { DataGrid, ColDef, ValueGetterParams } from '@material-ui/data-grid';
 const columns: ColDef[] = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'firstName', headerName: 'First name', width: 130 },
+  { field: 'middlename', headerName: 'Middle name', width: 130 },
   { field: 'lastName', headerName: 'Last name', width: 130 },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
+    field: 'dob',
+    headerName: 'DOB',
+    type: 'date',
     width: 90,
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
+    field: 'role',
+    headerName: 'Role',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 160,
