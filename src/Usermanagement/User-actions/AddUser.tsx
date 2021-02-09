@@ -176,9 +176,29 @@ const AddUser = () => {
         const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           setValue(event.target.value);
         };
-  
-
-
+        const [role, setRole] = React.useState('');
+        const roles = [
+            {
+              value: 'Admin',
+              label: 'Admin',
+            },
+            {
+              value: 'Teacher',
+              label: 'Teacher',
+            },
+            {
+              value: 'Student',
+              label: 'Student',
+            },
+            {
+              value: 'Parent',
+              label: 'Parent',
+            },
+          ];
+          const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setRole(event.target.value);
+          };
+        
     return (
         <Container>
             <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '60vh' }}  >
@@ -232,7 +252,7 @@ const AddUser = () => {
           shrink: true,
         }}
       />
-      <br />
+      
       <TextField
           id="standard-multiline-flexible"
           label="Address"
@@ -241,7 +261,24 @@ const AddUser = () => {
           value={value}
           onChange={handleAddressChange}
         />
-          
+        
+          <TextField
+          id="standard-select-role-native"
+          select
+          label="Role"
+          value={role}
+          onChange={handleRoleChange}
+          SelectProps={{
+            native: true,
+          }}
+          helperText="Please select your role"
+        >
+          {roles.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </TextField>
         
    
                             </div>
