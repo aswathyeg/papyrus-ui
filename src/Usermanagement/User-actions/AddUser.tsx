@@ -171,7 +171,11 @@ const AddUser = () => {
                 payload: event.target.value
             });
         }
-       
+        const [value, setValue] = React.useState('');
+
+        const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setValue(event.target.value);
+        };
   
 
 
@@ -180,7 +184,7 @@ const AddUser = () => {
             <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '60vh' }}  >
                 <form className={classes.container} noValidate autoComplete="off">
                     <Card className={classes.card}>
-                        <CardHeader className={classes.header} title="Login" />
+                        <CardHeader className={classes.header} title="Add New User" />
                         <CardContent>
                             <div>
                                 <TextField
@@ -217,10 +221,10 @@ const AddUser = () => {
                                     onChange={handleLastnameChange}
                                     onKeyPress={handleKeyPress}
                                 />
-                                <form className={classes.container} noValidate>
+                              
       <TextField
         id="date"
-        label="Birthday"
+        label="DOB"
         type="date"
         defaultValue="2017-05-24"
         className={classes.textField}
@@ -228,7 +232,18 @@ const AddUser = () => {
           shrink: true,
         }}
       />
-    </form>
+      <br />
+      <TextField
+          id="standard-multiline-flexible"
+          label="Address"
+          multiline
+          rowsMax={4}
+          value={value}
+          onChange={handleAddressChange}
+        />
+          
+        
+   
                             </div>
                         </CardContent>
                         <CardActions>
