@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 //import Login from './Login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
