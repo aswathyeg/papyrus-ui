@@ -19,9 +19,9 @@ ReactDOM.render(
         <div>
 
             <App />
-            {/* <Login />  */}
+             <Login />  
             {/* <AddUser /> */}
-           <ViewUser />
+           {/* <ViewUser /> */}
         </div>
      </BrowserRouter>,
     document.getElementById('root')
