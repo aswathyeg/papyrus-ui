@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
 
-      <Suspense fallback={<div>Loading...</div>}>
+      
      
       <Switch>
         
@@ -27,7 +27,7 @@ function App() {
         <Route path="/teacher" component={Teacher}/>
         <Route path="/logout" component={Logout}/>
       </Switch>
-    </Suspense>
+    
   
     
 
