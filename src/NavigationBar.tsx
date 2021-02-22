@@ -103,8 +103,8 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
                   <MenuItem selected={activeRoute(prop.path)} >
                 {/* <ListItemIcon> <HomeRoundedIcon /></ListItemIcon>   */}
-                    <ListItemIcon> {(key ===0?< DashboardRoundedIcon color="primary"/>:(key ===1 ?< PeopleRoundedIcon color="primary"/>:
-                    (key ===2 ?<AccountCircleRoundedIcon color="primary"/>:(key ===3 ?<SchoolIcon color="primary"/>:(key ===4 ?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
+                    <ListItemIcon> {(key ===0?<div>< DashboardRoundedIcon color="primary"/></div>:(key ===1 ?<div>< PeopleRoundedIcon color="primary"/></div>:
+                    (key ===2 ?<div><AccountCircleRoundedIcon color="primary"/></div>:(key ===3 ?<div><SchoolIcon color="primary"/></div>:(key ===4 ?<div><LocalLibraryRoundedIcon color="primary"/></div>:<div><ExitToAppIcon color="primary"/></div>)))))}</ListItemIcon> 
                     <ListItemText primary={prop.sidebarName} />
                   </MenuItem>
                 </NavLink>
