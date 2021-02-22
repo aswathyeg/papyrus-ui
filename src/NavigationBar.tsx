@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+//import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
 import PeopleRoundedIcon from '@material-ui/icons/PeopleRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -11,6 +11,16 @@ import SchoolIcon from '@material-ui/icons/School';
 import LocalLibraryRoundedIcon from '@material-ui/icons/LocalLibraryRounded';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
+
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import {
   AppBar,
   Toolbar,
@@ -28,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -41,14 +52,28 @@ const useStyles = makeStyles((theme: Theme) =>
     fullList: {
       width: 'auto',
     },
+    nested: {
+      paddingLeft: theme.spacing(2),
+    },
   }),
 );
 
 const NavigationBar: React.FC = (props: any): JSX.Element => {
-
-  
+  const [openmenu, setOpen] = useState(true);
+  const history = useHistory();
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!openmenu);
+  };
+  const addNewUser=()=>{
+
+    history.push('./adduser');
+
+  }
+  const viewNewUser=()=>{
+    history.push('./viewuser');
+  }
   const toggleDrawer = (open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent,
   ) => {
@@ -66,7 +91,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
   const activeRoute = (routeName: any) => {
     return props.location.pathname === routeName ? true : false;
   }
-
+  
   return (
     
     <div>
@@ -96,14 +121,51 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
                   <MenuItem selected={activeRoute(prop.path)} >
                 {/* <ListItemIcon> <HomeRoundedIcon /></ListItemIcon>   */}
-                    <ListItemIcon> {key=== 0 ?<HomeRoundedIcon color="primary"/> :(key ===1?< DashboardRoundedIcon color="primary"/>:(key ===2 ?< PeopleRoundedIcon color="primary"/>:
-                    (key ===3 ?<AccountCircleRoundedIcon color="primary"/>:(key ===4 ?<SchoolIcon color="primary"/>:(key ===5 ?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
+                    <ListItemIcon> {(key ===0?< DashboardRoundedIcon color="primary"/>:(key ===1 ? <div> <NavLink to={prop.path} style={{ textDecoration: 'none' }}>
+                    < PeopleRoundedIcon color="primary"/>  <List
+      component="nav"
+       aria-labelledby="nested-list-subheader"
+     
+      className={classes.root}
+    >
+       <Collapse in={openmenu} timeout="auto" unmountOnExit>
+       <List component="div" disablePadding>
+      <ListItem button className={classes.nested} >
+        
+        <ListItemText primary="User Management" onClick={handleClick}/> 
+       {openmenu? <ExpandLess /> : <ExpandMore />}
+     </ListItem>
+    
+
+         <ListItem button className={classes.nested}>
+           <List>
+           <ListItemText  primary="Add New User" onClick={addNewUser} />   
+           
+</List>
+         </ListItem>
+
+         <ListItem button className={classes.nested}>
+           <List>
+                   
+           <ListItemText primary="View Users" onClick={viewNewUser} />
+           
+           </List>
+         </ListItem>
+       </List>
+     </Collapse>
+   </List>
+            </NavLink>
+            </div>
+     :(key ===3?<AccountCircleRoundedIcon color="primary"/>:(key ===4?<SchoolIcon color="primary"/>:(key ===5?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
+     
                     <ListItemText primary={prop.sidebarName} />
                   </MenuItem>
                 </NavLink>
+                
               );
             })}
           </MenuList>
+          
         </div>
       </Drawer>
     </div>

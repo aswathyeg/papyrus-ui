@@ -1,8 +1,6 @@
 
 
-import NavigationBar from './NavigationBar';
-
-
+import NavigationBar from '../NavigationBar';
 const Usermanagement: React.FC = (): JSX.Element => {
   
   return (
