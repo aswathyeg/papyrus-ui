@@ -6,6 +6,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { useHistory } from 'react-router-dom';
 
+//const fullRowNavigable:false;
 const useStyles = makeStyles({
   root: {
     height: 240,
@@ -16,11 +17,14 @@ const useStyles = makeStyles({
 
 
 export default function FileSystemNavigator() {
+  //
     const history = useHistory();
   const classes = useStyles();
+
   const  addUser=()=>{
+   // const fullRowNavigable:true;
    console.log('hi');
-    history.push('./adduser');
+    history.push('../adduser');
 
 }
   return (
@@ -30,8 +34,8 @@ export default function FileSystemNavigator() {
       defaultExpandIcon={<ChevronRightIcon />}
     >
       <TreeItem nodeId="1" label="User Management">
-          {/* <button onClick={addUser}>Add User</button> */}
-         <TreeItem nodeId="2" label="Add User" onKeyPress={addUser} /> 
+            {/* <button onClick={addUser}>Add User</button>   */}
+           <TreeItem nodeId="2" label="Add User" onClick={addUser} />   
         <TreeItem nodeId="3" label="View Users" />
        
       </TreeItem>
