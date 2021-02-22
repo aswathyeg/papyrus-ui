@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route,Switch} from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Login';
-import AddUser from './Usermanagement/User-actions/AddUser';
-import ViewUser from './Usermanagement/User-actions/ViewUser';
-import ExpandableMenu from './ExpandableMenu';
-import TreeView from './TreeView';
+// import AddUser from './Usermanagement/UserActions/AddUser';
+// import ViewUser from './Usermanagement/UserActions/ViewUser';
+// //import ExpandableMenu from './ExpandableMenu';
+// import TreeView from './TreeView';
+//import { Switch } from '@material-ui/core';
+
 // import Dashboard from './Dashboard';
 // import Logout from './Logout';
 // import Usermanagement from './Usermanagement';
@@ -20,10 +22,15 @@ ReactDOM.render(
       <BrowserRouter>
         <div>
 
-            {/* <App />
-             <Login />   */}
-             {/* <ExpandableMenu /> */}
-             <TreeView />
+              <App /> 
+             <Login />   
+
+             {/* <ExpandableMenu /> 
+             <Switch>
+             <Route path="/adduser" component={AddUser}/>
+             <Route path="/viewuser" component={ViewUser}/>
+             </Switch> */}
+              {/* <TreeView />  */}
 
             {/* <AddUser /> */}
            {/* <ViewUser /> */}
