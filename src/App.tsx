@@ -12,6 +12,7 @@ import Student from './Student';
 import Teacher from './Teacher';
 import AddUser from './Usermanagement/UserActions/AddUser';
 import ViewUser from './Usermanagement/UserActions/ViewUser';
+import Usermanagement from './Usermanagement/Usermanagement';
 function App() {
 
   return (
@@ -23,7 +24,7 @@ function App() {
         <Switch>
 
           <Route path="/dashboard" component={Dashboard} />
-          {/* <Route path="/usermanagement" component={Usermanagement}/> */}
+           <Route path="/usermanagement" component={Usermanagement}/>
           <Route path="/admin" component={Admin} />
           <Route path="/student" component={Student} />
           <Route path="/teacher" component={Teacher} />
