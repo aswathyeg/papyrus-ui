@@ -137,7 +137,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
        <ListItemText primary={prop.userSidebarName} />
        {openmenu ? <ExpandLess /> : <ExpandMore />}
        </ListItem>
-       <Collapse in={!openmenu} timeout="auto" unmountOnExit>
+       <Collapse in={!openmenu} timeout='auto' unmountOnExit>
        <List component="div" disablePadding>
        <ListItem button className={classes.nested} >
        <List>
