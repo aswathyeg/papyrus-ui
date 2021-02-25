@@ -106,7 +106,7 @@ const reducer = (state: State, action: Action): State => {
 }
 
 
-const AddUser = () => {
+const AddUser: React.FC = (): JSX.Element => {
     const history = useHistory();
     //document.getElementById('login')!.style.display = "none";
     //let isAuthenticated: true;
