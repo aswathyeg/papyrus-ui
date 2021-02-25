@@ -16,52 +16,26 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="App">
-
-      
-     
-      <Switch>
-        
-        <Route path="/dashboard" component={Dashboard}/>
-        {/* <Route path="/usermanagement" component={Usermanagement}/> */}
-        <Route path="/admin" component={Admin}/>
-        <Route path="/student" component={Student}/>
-        <Route path="/teacher" component={Teacher}/>
-        <Route path="/logout" component={Logout}/>
-        <Route path="/adduser" component={AddUser}/>
-        <Route path="/viewuser" component={ViewUser}/>
-      </Switch>
-    
-  
-    
-
-  
+      <div className="App">
 
 
 
+        <Switch>
 
+          <Route path="/dashboard" component={Dashboard} />
+          {/* <Route path="/usermanagement" component={Usermanagement}/> */}
+          <Route path="/admin" component={Admin} />
+          <Route path="/student" component={Student} />
+          <Route path="/teacher" component={Teacher} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/adduser" component={AddUser} />
+          <Route path="/viewuser" component={ViewUser} />
+        </Switch>
 
-
-{/* <Switch>
-
-<Route
-    exact
-    path='/logout'
-    render={(props) =>
-        <div>
-            <Logout />
-        </div>}
-/>
-</Switch> */}
-</div>
-</BrowserRouter>
-
-    
-
-  
+      </div>
+    </BrowserRouter>
 
   );
-
 
 }
 
