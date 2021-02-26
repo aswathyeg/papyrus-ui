@@ -1,6 +1,9 @@
 .idea
 build
-
+examples
+example.json
+index.js
+commands.js
 # Logs
 logs
 *.log
