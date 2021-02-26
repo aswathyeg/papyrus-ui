@@ -125,6 +125,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                     
                     :(key ===1 ? 
                     <Fragment> <NavLink to={prop.path} style={{ textDecoration: 'none' }}key={key}>
+                       <Drawer classes={{ paper: classes.drawer }} open={!isOpen} onClose={toggleDrawer(false)}></Drawer>
                     < PeopleRoundedIcon color="primary"/> 
                      <List
       component="nav"
