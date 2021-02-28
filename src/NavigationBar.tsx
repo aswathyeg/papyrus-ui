@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { NavLink, withRouter } from 'react-router-dom';
 import Routes from './Routes';
@@ -37,7 +37,7 @@ import { ListItemIcon } from '@material-ui/core';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      flexGrow: 10,
       
     },
     menuButton: {
@@ -65,6 +65,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setOpen(!openmenu);
+    console.log('hi');
   };
   const addNewUser=()=>{
 
@@ -107,7 +108,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
           </Toolbar>
         </AppBar>
       </div>
-      <Drawer classes={{ paper: classes.drawer }} open={isOpen} onClose={toggleDrawer(false)}>
+      <Drawer classes={{ paper: classes.drawer }} open={!isOpen} onClose={toggleDrawer(false)}>
         <div
           className={classes.fullList}
           role="presentation"
@@ -120,26 +121,30 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
               return (
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
                   <MenuItem selected={activeRoute(prop.path)} >
-                {/* <ListItemIcon> <HomeRoundedIcon /></ListItemIcon>   */}
-                    <ListItemIcon> {(key ===0?< DashboardRoundedIcon color="primary"/>:(key ===1 ? <div> <NavLink to={prop.path} style={{ textDecoration: 'none' }}>
-                    < PeopleRoundedIcon color="primary"/>  <List
+                    <ListItemIcon> {(key ===0?<div>< DashboardRoundedIcon color="primary"/></div>
+                    
+                    :(key ===1 ? 
+                    <Fragment> <NavLink to={prop.path} style={{ textDecoration: 'none' }}key={key}>
+                       
+                    < PeopleRoundedIcon color="primary"/> 
+                     <List
       component="nav"
        aria-labelledby="nested-list-subheader"
      
       className={classes.root}
     >
-       <Collapse in={openmenu} timeout="auto" unmountOnExit>
+            
+       <ListItem button onClick={handleClick}>
+       <ListItemText primary={prop.userSidebarName} />
+       {openmenu ? <ExpandLess /> : <ExpandMore />}
+      
+       </ListItem>
+       <Collapse in={!openmenu} timeout='auto' unmountOnExit>
        <List component="div" disablePadding>
-      <ListItem button className={classes.nested} >
+       <ListItem button className={classes.nested} >
+       <List>
         
-        <ListItemText primary="User Management" onClick={handleClick}/> 
-       {openmenu? <ExpandLess /> : <ExpandMore />}
-     </ListItem>
-    
-
-         <ListItem button className={classes.nested}>
-           <List>
-           <ListItemText  primary="Add New User" onClick={addNewUser} />   
+           <ListItemText  primary="Add New User" onClick={addNewUser} />
            
 </List>
          </ListItem>
@@ -155,10 +160,13 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
      </Collapse>
    </List>
             </NavLink>
-            </div>
-     :(key ===3?<AccountCircleRoundedIcon color="primary"/>:(key ===4?<SchoolIcon color="primary"/>:(key ===5?<LocalLibraryRoundedIcon color="primary"/>:<ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
+            </Fragment>
+     :(key ===2?<AccountCircleRoundedIcon color="primary"/>:
+     (key ===3?<SchoolIcon color="primary"/>:
+     (key ===4?<LocalLibraryRoundedIcon color="primary"/>:
+     <ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
      
-                    <ListItemText primary={prop.sidebarName} />
+                     <ListItemText primary={prop.sidebarName} /> 
                   </MenuItem>
                 </NavLink>
                 

@@ -7,17 +7,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-
-import { useHistory } from 'react-router-dom';
-//import { AddToQueueSharp } from '@material-ui/icons';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         textField: {
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),
             width: 200,
-          },
+        },
         container: {
             display: 'flex',
             flexWrap: 'wrap',
@@ -106,10 +102,7 @@ const reducer = (state: State, action: Action): State => {
 }
 
 
-const AddUser = () => {
-    const history = useHistory();
-    //document.getElementById('login')!.style.display = "none";
-    //let isAuthenticated: true;
+const AddUser: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [state, dispatch] = useReducer(reducer, initialState);
     useEffect(() => {
@@ -127,8 +120,8 @@ const AddUser = () => {
     }, [state.firstname, state.lastname]);
 
     const handleLogin = () => {
-       
-        
+
+
         if (state.firstname === 'aeg@email.com' && state.lastname === '1234') {
 
 
@@ -136,11 +129,11 @@ const AddUser = () => {
                 type: 'loginSuccess',
                 payload: 'loginSuccess'
             });
-        //     history.push('/menubar');
+            //     history.push('/menubar');
             //setTimeout(() => history.push('/menubar'), 10);
-            
+
         } else {
-           
+
             dispatch({
                 type: 'loginFailed',
                 payload: 'Incorrect username or password'
@@ -171,34 +164,34 @@ const AddUser = () => {
                 payload: event.target.value
             });
         }
-        const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('');
 
-        const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          setValue(event.target.value);
-        };
-        const [role, setRole] = React.useState('');
-        const roles = [
-            {
-              value: 'Admin',
-              label: 'Admin',
-            },
-            {
-              value: 'Teacher',
-              label: 'Teacher',
-            },
-            {
-              value: 'Student',
-              label: 'Student',
-            },
-            {
-              value: 'Parent',
-              label: 'Parent',
-            },
-          ];
-          const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            setRole(event.target.value);
-          };
-        
+    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value);
+    };
+    const [role, setRole] = React.useState('');
+    const roles = [
+        {
+            value: 'Admin',
+            label: 'Admin',
+        },
+        {
+            value: 'Teacher',
+            label: 'Teacher',
+        },
+        {
+            value: 'Student',
+            label: 'Student',
+        },
+        {
+            value: 'Parent',
+            label: 'Parent',
+        },
+    ];
+    const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRole(event.target.value);
+    };
+
     return (
         <Container>
             <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '60vh' }}  >
@@ -206,111 +199,105 @@ const AddUser = () => {
                     <Card className={classes.card}>
                         <CardHeader className={classes.header} title="Add New User" />
                         <CardContent>
-                            
-                                <TextField
-                                    error={state.isError}
-                                    fullWidth
-                                    id="firstname"
-                                    type="text"
-                                    //label="Username"
-                                    placeholder="First Name"
-                                    margin="normal"
-                                    onChange={handleFirstnameChange}
-                                    onKeyPress={handleKeyPress}
-                                />
-                                <TextField
-                                    error={state.isError}
-                                    fullWidth
-                                    id="middlename"
-                                    type="text"
-                                    //label="Username"
-                                    placeholder="Middle Name"
-                                    margin="normal"
-                                    onChange={handleFirstnameChange}
-                                    onKeyPress={handleKeyPress}
-                                />
-                                <TextField
-                                    error={state.isError}
-                                    fullWidth
-                                    id="lastname"
-                                    type="text"
-                                    //label="Password"
-                                    placeholder="Last Name"
-                                    margin="normal"
-                                    helperText={state.helperText}
-                                    onChange={handleLastnameChange}
-                                    onKeyPress={handleKeyPress}
-                                />
-                              
-      <TextField
-        id="date"
-        label="DOB"
-        type="date"
-        defaultValue="2017-05-24"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-      
-      <TextField
-          id="standard-multiline-flexible"
-          label="Address"
-          multiline
-          rowsMax={4}
-          value={value}
-          onChange={handleAddressChange}
-        />
 
-          <TextField
-          id="standard-select-role-native"
-          select
-          label="Role"
-          value={role}
-          onChange={handleRoleChange}
-          SelectProps={{
-            native: true,
-          }}
-          helperText="Please select your role"
-        >
-          {roles.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </TextField>          
-                        <CardActions>
-                            <Button
-                                //  {...isAuthenticated? <Menubar />:<Login />}
-                                // to="/home":component={Link}
-                                // to="/"}
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="firstname"
+                                type="text"
+                                //label="Username"
+                                placeholder="First Name"
+                                margin="normal"
+                                onChange={handleFirstnameChange}
+                                onKeyPress={handleKeyPress}
+                            />
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="middlename"
+                                type="text"
+                                //label="Username"
+                                placeholder="Middle Name"
+                                margin="normal"
+                                onChange={handleFirstnameChange}
+                                onKeyPress={handleKeyPress}
+                            />
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="lastname"
+                                type="text"
+                                //label="Password"
+                                placeholder="Last Name"
+                                margin="normal"
+                                helperText={state.helperText}
+                                onChange={handleLastnameChange}
+                                onKeyPress={handleKeyPress}
+                            />
 
-                                // component={Link}
-                                // to="/menubar"
-                                variant="contained"
-                                size="large"
-                                color="primary"
-                                className={classes.loginBtn}
-                                onClick={handleLogin}
-                                disabled={state.isButtonDisabled}
+                            <TextField
+                                id="date"
+                                label="DOB"
+                                type="date"
+                                defaultValue="2017-05-24"
+                                className={classes.textField}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
 
+                            <TextField
+                                id="standard-multiline-flexible"
+                                label="Address"
+                                multiline
+                                rowsMax={4}
+                                value={value}
+                                onChange={handleAddressChange}
+                            />
 
-
+                            <TextField
+                                id="standard-select-role-native"
+                                select
+                                label="Role"
+                                value={role}
+                                onChange={handleRoleChange}
+                                SelectProps={{
+                                    native: true,
+                                }}
+                                helperText="Please select your role"
                             >
-                                Submit
+                                {roles.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                            <CardActions>
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    color="primary"
+                                    className={classes.loginBtn}
+                                    onClick={handleLogin}
+                                    disabled={state.isButtonDisabled}
+
+
+
+                                >
+                                    Submit
           </Button>
-         
-          </CardActions>
+
+                            </CardActions>
                         </CardContent>
-                        
+
                     </Card>
-                   
+
                 </form>
-              
+
             </Typography>
-           
+
         </Container>
-      
+
     )
 }
 
