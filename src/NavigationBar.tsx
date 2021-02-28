@@ -125,7 +125,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                     
                     :(key ===1 ? 
                     <Fragment> <NavLink to={prop.path} style={{ textDecoration: 'none' }}key={key}>
-                       <Drawer classes={{ paper: classes.drawer }} open={!isOpen} onClose={toggleDrawer(false)}></Drawer>
+                       
                     < PeopleRoundedIcon color="primary"/> 
                      <List
       component="nav"
@@ -133,10 +133,11 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
      
       className={classes.root}
     >
-      
+            
        <ListItem button onClick={handleClick}>
        <ListItemText primary={prop.userSidebarName} />
        {openmenu ? <ExpandLess /> : <ExpandMore />}
+      
        </ListItem>
        <Collapse in={!openmenu} timeout='auto' unmountOnExit>
        <List component="div" disablePadding>
