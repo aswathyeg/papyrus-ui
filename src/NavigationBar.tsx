@@ -65,6 +65,9 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setOpen(!openmenu);
+   // setIsOpen(!isOpen);
+    //open={isOpen}
+    
     console.log('hi');
   };
   const addNewUser=()=>{
@@ -75,6 +78,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
   const viewNewUser=()=>{
     history.push('./viewuser');
   }
+  
   const toggleDrawer = (open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent,
   ) => {
@@ -108,7 +112,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
           </Toolbar>
         </AppBar>
       </div>
-      <Drawer classes={{ paper: classes.drawer }} open={!isOpen} onClose={toggleDrawer(false)}>
+      <Drawer classes={{ paper: classes.drawer }} open={isOpen} onClose={toggleDrawer(false)}>
         <div
           className={classes.fullList}
           role="presentation"
@@ -126,7 +130,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
                     :(key ===1 ? 
                     <Fragment> <NavLink to={prop.path} style={{ textDecoration: 'none' }}key={key}>
                        
-                    < PeopleRoundedIcon color="primary"/> 
+                    < PeopleRoundedIcon color="primary"/>   
                      <List
       component="nav"
        aria-labelledby="nested-list-subheader"
@@ -142,6 +146,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
        <Collapse in={!openmenu} timeout='auto' unmountOnExit>
        <List component="div" disablePadding>
        <ListItem button className={classes.nested} >
+       
        <List>
         
            <ListItemText  primary="Add New User" onClick={addNewUser} />
@@ -159,22 +164,24 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
        </List>
      </Collapse>
    </List>
+   
             </NavLink>
+            
             </Fragment>
+           
      :(key ===2?<AccountCircleRoundedIcon color="primary"/>:
      (key ===3?<SchoolIcon color="primary"/>:
      (key ===4?<LocalLibraryRoundedIcon color="primary"/>:
      <ExitToAppIcon color="primary"/>)))))}</ListItemIcon> 
      
                      <ListItemText primary={prop.sidebarName} /> 
+                     
                   </MenuItem>
                 </NavLink>
-                
-              );
+                );
             })}
           </MenuList>
-          
-        </div>
+                  </div>
       </Drawer>
     </div>
   );
