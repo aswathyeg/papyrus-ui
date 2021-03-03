@@ -73,10 +73,12 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
   const addNewUser=()=>{
 
     history.push('./adduser');
+    window.location.reload(false);
 
   }
   const viewNewUser=()=>{
     history.push('./viewuser');
+    window.location.reload(false);
   }
   
   const toggleDrawer = (open: boolean) => (
@@ -95,6 +97,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
 
   const activeRoute = (routeName: any) => {
     return props.location.pathname === routeName ? true : false;
+    
   }
   
   return (
@@ -112,7 +115,7 @@ const NavigationBar: React.FC = (props: any): JSX.Element => {
           </Toolbar>
         </AppBar>
       </div>
-      <Drawer classes={{ paper: classes.drawer }} open={isOpen} onClose={toggleDrawer(false)}>
+      <Drawer classes={{ paper: classes.drawer }} open={!isOpen} onClose={toggleDrawer(false)}>
         <div
           className={classes.fullList}
           role="presentation"
