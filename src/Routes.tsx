@@ -10,11 +10,13 @@ const Routes = [
     path: '/dashboard',
     sidebarName: 'Dashboard',
     component: Dashboard
+    
+    
   },
   {
     path: '/usermanagement',
     userSidebarName: 'User Management',
-    component: Usermanagement,
+    component: Usermanagement
 
   },
 
